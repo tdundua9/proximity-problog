@@ -1,0 +1,6 @@
+0.4::stress(a).
+smokes(X) :- stress(X).
+a ~ b = 0.7.
+a ~ c = 0.8.
+query(smokes(b)).
+query(smokes(c)).

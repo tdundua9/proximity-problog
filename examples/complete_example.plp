@@ -1,0 +1,13 @@
+% Complete worked example.
+0.3::rain.
+0.4::sprinkler.
+
+wet(grass) :- rain.
+wet(grass) :- sprinkler.
+
+slippery(X) :- wet(X).
+
+grass ~ lawn = 0.8.
+
+query(slippery(grass)).
+query(slippery(lawn)).

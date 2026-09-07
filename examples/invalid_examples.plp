@@ -1,0 +1,15 @@
+% This file is intentionally INVALID and is only a syntax-check reference.
+% Uncomment one line at a time to see the translator reject it.
+%
+% 1.2::p(a).              % probability outside [0,1]
+% 0.5::p(X).              % probabilistic fact is not ground
+% a ~ a = 0.8.            % reflexive proximity is implicit, not declared
+% f(a) ~ b = 0.7.         % compound term: language is function-free
+% query(p(X)).             % query is not ground
+% 0.5::evidence(a).        % "evidence" is reserved by ProbLog itself, not
+%                          % just by this translator's own machinery (see
+%                          % translator.pl's validate_source_predicate_name/2)
+% 0.5::query(a).           % likewise "query" is reserved by ProbLog itself
+% query(nonexistent(a)).   % querying a predicate that has no clause head
+%                          % and no probabilistic fact anywhere in the
+%                          % program (see validate_queries_defined/1)

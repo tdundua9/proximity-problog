@@ -1,0 +1,17 @@
+% Example with probabilistic facts, rules, and proximity.
+0.3::burglary.
+0.2::earthquake.
+
+person(mary).
+person(john).
+
+alarm :- burglary.
+alarm :- earthquake.
+hears_alarm(X) :- alarm, person(X).
+calls(X) :- hears_alarm(X).
+
+mary ~ maria = 0.8.
+
+query(calls(mary)).
+query(calls(maria)).
+query(calls(john)).

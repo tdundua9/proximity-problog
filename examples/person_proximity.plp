@@ -1,0 +1,6 @@
+person(mary).
+
+mary ~ maria = 0.8.
+
+query(person(mary)).
+query(person(maria)).

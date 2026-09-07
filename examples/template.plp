@@ -1,0 +1,18 @@
+% Allowed source forms:
+%   p::ground_atom.
+%   constant1 ~ constant2 = p.
+%   deterministic_fact.
+%   head :- body.
+%   query(ground_atom).
+%
+% Restrictions enforced by translator.pl:
+%   - probabilities in [0,1]
+%   - function-free terms (constants and variables only)
+%   - probabilistic facts are ground
+%   - proximity declarations are non-reflexive and between constants
+%   - queries are ground
+
+0.5::observed(a).
+p(X) :- observed(X).
+a ~ b = 0.6.
+query(p(b)).

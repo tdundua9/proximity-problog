@@ -1,0 +1,5 @@
+0.6::smart(a).
+a ~ b = 0.5.
+clever(X) :- smart(X).
+query(clever(a)).
+query(clever(b)).
