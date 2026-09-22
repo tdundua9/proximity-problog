@@ -85,10 +85,3 @@ swipl main.pl
 | `template.plp` | `p(b)` | 0.3 |
 | `complete_example.plp` | `slippery(grass)` | 0.58 |
 | `complete_example.plp` | `slippery(lawn)` | 0.464 |
-
-To run the complete example:
-
-```bash
-swipl cli.pl -- examples/complete_example.plp examples/complete_example.pl
-python3 -m problog examples/complete_example.pl
-```
