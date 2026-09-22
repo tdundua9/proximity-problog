@@ -1,24 +1,21 @@
 # Proximity-Based ProbLog Translator
 
-Prototype translator for the proximity-based probabilistic logic programming language developed in the Master's thesis **Design and Implementation of a Proximity-Based Probabilistic Logic Programming Language**.
-
+Prototype translator for the proximity-based probabilistic logic programming language.
 ## Supported language
 
 The translator accepts:
 
-- finite, function-free definite logic programs;
+- function-free definite logic programs;
 - ground probabilistic facts `p::q(c1,...,cn).` with `p` in `[0,1]`;
-- non-reflexive proximity declarations `s1 ~ s2 = p.` between constants;
-- deterministic facts and definite clauses;
+- proximity declarations `s1 ~ s2 = p.` between constants;
 - ground `query(...)` declarations.
 
-The translator checks these restrictions and rejects duplicate probabilistic facts, duplicate symmetric proximity declarations, reserved predicate names, and queries whose predicates are not defined in the program.
 
 ## Translation
 
 1. `p::q(c1,...,cn).` becomes `p::q_aux(c1,...,cn).`
 2. `s1 ~ s2 = p.` becomes `p::prox(s1,s2).`
-3. Matching is represented by:
+3. Proximity between constants is represented by:
 
 ```prolog
 equals(X,X).
@@ -26,7 +23,7 @@ equals(X,Y) :- prox(X,Y).
 equals(X,Y) :- prox(Y,X).
 ```
 
-4. Definitions of `q/n` are moved to `q_aux/n`, and a wrapper with the original predicate name performs argument-wise `equals/2` matching.
+4. Definitions of q/n are moved to q_aux/n, and a wrapper with the original predicate name applies equals/2 argument-wise.
 5. Atoms in clause bodies keep their original predicate names.
 6. Ground queries are unchanged.
 
