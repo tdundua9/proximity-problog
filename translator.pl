@@ -280,7 +280,6 @@ pfact_to_aux_term(pfact(Fact, Prob), (Prob :: AuxFact)) :-
 
 prox_to_fact_term(prox(S1, S2, Prob), (Prob :: prox(S1,S2))).
 
-% Deterministic matching relation.
 % This predicate is used only when at least one proximity declaration exists;
 % the no-proximity case is handled earlier by emitting the source program
 % unchanged.
